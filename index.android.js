@@ -9,19 +9,23 @@ import {
 
 const Web3 = require('web3');
 const web3 = new Web3();
-web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+const testNet = 'http://10.0.0.123:8540';
+web3.setProvider(new web3.providers.HttpProvider(`${testNet}`));
 
 export default class mobile extends Component {
 
   state = {
-    balance: null
+    balance: null,
+    coinbase: null
   };
 
   getBalance() {
     web3.eth.getCoinbase((err, coinbase) => {
       const balance = web3.eth.getBalance(coinbase, (err2, balance) => {
+        console.log('coinbase: ' + coinbase);
         console.log('balance ' + balance);
-        this.setState({balance});
+        this.setState({balance,coinbase});
+        // this.setState({coinbase})
       });
     });
   }
@@ -33,7 +37,10 @@ export default class mobile extends Component {
           <Text style={styles.balanceText}>Get Balance</Text>
         </TouchableOpacity>
         {this.state.balance && <Text style={styles.balance}>
-          {`${this.state.balance}`}
+          {`balance: ${this.state.balance}`}
+        </Text>}
+        {this.state.coinbase && <Text style={styles.balance}>
+          {`${this.state.coinbase}`}
         </Text>}
       </View>
     );

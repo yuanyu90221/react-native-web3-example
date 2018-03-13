@@ -9,7 +9,8 @@ import {
 
 const Web3 = require('web3');
 const web3 = new Web3();
-web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+const testNet = 'http://10.0.0.123:8540';
+web3.setProvider(new web3.providers.HttpProvider(`${testNet}`));
 
 export default class mobile extends Component {
 

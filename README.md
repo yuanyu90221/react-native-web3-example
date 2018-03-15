@@ -10,4 +10,17 @@
 
 ## 關於react-native-randombytes
   https://www.npmjs.com/package/react-native-randombytes
-  
+
+## web3.js 相關
+  版本為0.19.1所以
+  需要把原本是callback的部分利用promise自己作轉換
+
+```code
+function web3AsynWrapper(web3Fun) {
+  return function(arg) {
+    return new Promise((resolve, reject) => {
+      web3Fun(arg, (e, data) => e ? reject(e): resolve(data))
+    })
+  }
+}
+```

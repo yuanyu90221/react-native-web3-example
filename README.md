@@ -7,3 +7,7 @@
   透過在android project下的build.gradle
   以及在ios project下的project.pbxproj 
   內加入react-native-randombytes的相依性
+
+## 關於react-native-randombytes
+  https://www.npmjs.com/package/react-native-randombytes
+  

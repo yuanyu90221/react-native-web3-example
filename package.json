@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "assert": "^1.4.1",
+    "bluebird": "^3.5.1",
     "browserify-zlib": "^0.1.4",
     "console-browserify": "^1.1.0",
     "constants-browserify": "0.0.1",

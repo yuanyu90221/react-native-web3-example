@@ -22,6 +22,7 @@ export default class mobile extends Component {
   };
 
   getBalance() {
+    console.log(`test`);
     web3.eth.getCoinbase((err, coinbase) => {
       const balance = web3.eth.getBalance(coinbase, (err2, balance) => {
         console.log(`balance: ${balance}`);
